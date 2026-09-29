@@ -4,7 +4,7 @@
 
 ### Данные, историческая динамика и подготовка сценарного LEAP-моделирования декарбонизации
 
-**Language:** [Русский](README.md) · [English](README_en.md)
+**Language:** [Русский](README_ru.md) · [English](README.md)
 
 [![Статус — базовый сбор завершён](https://img.shields.io/badge/статус-базовый%20сбор%20завершён-2e7d32)](docs/data_acquisition_log.md)
 [![Охват — Казахстан, 1990–2023](https://img.shields.io/badge/охват-Казахстан%2C%201990–2023-1565c0)](research_design_ru.md)

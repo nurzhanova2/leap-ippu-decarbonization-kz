@@ -4,7 +4,7 @@
 
 ### Data, historical trends and preparation for LEAP-based decarbonisation modelling
 
-**Language:** [Русский](README.md) · [English](README_en.md)
+**Language:** [Русский](README_ru.md) · [English](README.md)
 
 [![Status — core collection complete](https://img.shields.io/badge/status-core%20collection%20complete-2e7d32)](docs/data_acquisition_log_en.md)
 [![Coverage — Kazakhstan, 1990–2023](https://img.shields.io/badge/coverage-Kazakhstan%2C%201990–2023-1565c0)](research_design_en.md)
