@@ -1,0 +1,9 @@
+# Primary source archives and extracted workbooks are retained locally.
+# Their provenance and SHA-256 hashes are documented in data/metadata/.
+data/raw/
+
+# Temporary PDF renderings used for inspection.
+tmp/
+
+# Operating-system metadata.
+.DS_Store
