@@ -1,7 +1,7 @@
 """Create reproducible tables and article figures from LEAP scenario assumptions.
 
 The calculations duplicate the formulas written to the LEAP import workbook:
-Current Accounts is the 2023 CRT calibration, Baseline is flat after 2023,
+Current Accounts is the 2024 LEAP calibration, Baseline is flat after 2024,
 and mitigation scenarios linearly interpolate to their 2030 and 2050 targets.
 Only branches included in the LEAP IPPU model are reported.
 """
@@ -42,6 +42,7 @@ GWP = {"CO2": 1, "CH4": 28, "N2O": 265}
 MINERAL = {"Cement clinker", "Lime", "Glass", "Other carbonate uses"}
 METALS = {"Pig iron", "Steel", "Sinter", "Pellets", "Ferroalloys (CO2)",
           "Ferroalloys (CH4)", "Aluminium", "Zinc"}
+CHEMICALS = {"Ammonia", "Nitric acid", "Calcium carbide"}
 
 
 def factors(name: str, scenario: str) -> tuple[float, float]:
@@ -50,22 +51,27 @@ def factors(name: str, scenario: str) -> tuple[float, float]:
     if scenario == "Moderate mitigation":
         return (0.85, 0.60) if name in MINERAL else (0.90, 0.65)
     if scenario == "Ambitious mitigation":
-        return (0.70, 0.30) if name in MINERAL else (0.75, 0.35)
+        if name in MINERAL:
+            return 0.70, 0.30
+        if name in METALS:
+            return 0.75, 0.35
+        if name in CHEMICALS:
+            return 0.70, 0.30
     raise ValueError(scenario)
 
 
 def factor_in_year(name: str, scenario: str, year: int) -> float:
-    if year == 2023 or scenario == "Baseline":
+    if year == 2024 or scenario == "Baseline":
         return 1.0
     f2030, f2050 = factors(name, scenario)
     if year <= 2030:
-        return 1 + (f2030 - 1) * (year - 2023) / 7
+        return 1 + (f2030 - 1) * (year - 2024) / 6
     return f2030 + (f2050 - f2030) * (year - 2030) / 20
 
 
 def write_csv(path: Path, rows: list[dict]) -> None:
     with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=rows[0].keys())
+        writer = csv.DictWriter(handle, fieldnames=rows[0].keys(), lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
@@ -74,7 +80,7 @@ def main() -> None:
     PROCESSED.mkdir(exist_ok=True)
     FIGURES.mkdir(exist_ok=True)
     scenarios = ["Baseline", "Moderate mitigation", "Ambitious mitigation"]
-    years = list(range(2023, 2051))
+    years = list(range(2024, 2051))
     detail_rows = []
     totals = {scenario: [] for scenario in scenarios}
     group_totals = {scenario: {group: [] for group in ("Mineral industry", "Metal industry", "Chemical industry")}
@@ -98,7 +104,7 @@ def main() -> None:
             for group in by_group:
                 group_totals[scenario][group].append(by_group[group])
 
-    write_csv(PROCESSED / "leap_ippu_scenario_results_2023_2050.csv", detail_rows)
+    write_csv(PROCESSED / "leap_ippu_scenario_results_2024_2050.csv", detail_rows)
 
     plt.style.use("seaborn-v0_8-whitegrid")
     colors = {"Baseline": "#455A64", "Moderate mitigation": "#F57C00", "Ambitious mitigation": "#00796B"}
@@ -108,15 +114,15 @@ def main() -> None:
         for year in (2030, 2050):
             idx = years.index(year)
             ax.scatter(year, totals[scenario][idx], color=colors[scenario], s=24, zorder=3)
-    ax.axvline(2023, color="#616161", linewidth=0.9, linestyle="--")
-    ax.text(2023.15, max(totals["Baseline"]) * 1.012, "calibration year", fontsize=8, color="#424242")
-    ax.set_xlim(2023, 2050)
+    ax.axvline(2024, color="#616161", linewidth=0.9, linestyle="--")
+    ax.text(2024.15, max(totals["Baseline"]) * 1.012, "calibration year", fontsize=8, color="#424242")
+    ax.set_xlim(2024, 2050)
     ax.set_ylim(bottom=0)
     ax.set_xlabel("Year")
     ax.set_ylabel("kt CO$_2$eq (AR5)")
-    ax.set_title("LEAP IPPU scenario pathways, Kazakhstan, 2023–2050")
+    ax.set_title("LEAP IPPU scenario pathways, Kazakhstan, 2024–2050")
     ax.legend(frameon=False, loc="upper right")
-    fig.savefig(FIGURES / "figure_4_leap_ippu_scenario_pathways_2023_2050.png", dpi=300)
+    fig.savefig(FIGURES / "figure_4_leap_ippu_scenario_pathways_2024_2050.png", dpi=300)
     plt.close(fig)
 
     # Avoided emissions by broad process group, relative to flat Baseline.
@@ -144,7 +150,7 @@ def main() -> None:
     fig.legend(handles, labels, ncol=3, frameon=False, loc="lower center", bbox_to_anchor=(0.5, 0.005))
     fig.suptitle("Avoided IPPU process emissions by group")
     fig.subplots_adjust(left=0.10, right=0.98, top=0.86, bottom=0.22, wspace=0.02)
-    fig.savefig(FIGURES / "figure_5_leap_ippu_avoided_emissions_2030_2050.png", dpi=300)
+    fig.savefig(FIGURES / "figure_5_leap_ippu_avoided_emissions_2024_2050.png", dpi=300)
     plt.close(fig)
 
     print("Wrote scenario table and figures.")

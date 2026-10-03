@@ -26,13 +26,13 @@ CURRENT = {
     357: 5041002.44,   # Pig iron CO2
     359: 432644.70,    # Steel CO2
     360: 3425548.28,   # Ferroalloys CO2
-    361: 36894.0,      # Ferroalloys CH4, kg
+    361: 36.894,       # Ferroalloys CH4, metric tonnes
     362: 403736.76,    # Aluminium CO2 (PFC excluded from model boundary)
     363: 274662.10,    # Zinc CO2
     365: 3538879.52,   # Sinter CO2
     367: 287330.44,    # Pellets CO2
     352: 326017.90,    # Ammonia CO2
-    354: 592400.0,     # Nitric acid N2O, kg
+    354: 592.4,        # Nitric acid N2O, metric tonnes
     356: 27426.0,      # Calcium carbide CO2
 }
 
@@ -58,8 +58,10 @@ def scenario_expression(branch_id: int, scenario: str) -> str:
     elif scenario == "Ambitious mitigation":
         if branch_id in MINERAL:
             f2030, f2050 = 0.70, 0.30
-        elif branch_id in METALS or branch_id in CHEMICALS:
+        elif branch_id in METALS:
             f2030, f2050 = 0.75, 0.35
+        else:
+            f2030, f2050 = 0.70, 0.30
     else:
         raise ValueError(f"Unexpected scenario: {scenario}")
     return f"Interp(2024,{value:.6f},2030,{value*f2030:.6f},2050,{value*f2050:.6f})"
