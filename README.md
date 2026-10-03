@@ -1,30 +1,30 @@
 <div align="center">
 
-# IPPU Kazakhstan · 1990–2023
+# LEAP-Based modelling of decarbonization pathways in Kazakhstan’s IPPU sector
 
-### Data, historical trends and preparation for LEAP-based decarbonisation modelling
+### Historical evidence, transparent scenario design and reproducible LEAP-ready inputs
 
 **Language:** [Русский](README_ru.md) · [English](README.md)
 
-[![Status — core collection complete](https://img.shields.io/badge/status-core%20collection%20complete-2e7d32)](docs/data_acquisition_log_en.md)
+[![Status — exploratory scenarios ready](https://img.shields.io/badge/status-exploratory%20scenarios%20ready-2e7d32)](docs/leap_scenarios_2023_2050_en.md)
 [![Coverage — Kazakhstan, 1990–2023](https://img.shields.io/badge/coverage-Kazakhstan%2C%201990–2023-1565c0)](research_design_en.md)
 [![Sector — IPCC 2 IPPU](https://img.shields.io/badge/sector-IPCC%202%20IPPU-6a1b9a)](data/metadata/bns_ippu_category_crosswalk.csv)
-[![LEAP — next stage](https://img.shields.io/badge/LEAP-next%20stage-f57c00)](research_design_en.md)
+[![LEAP — import verification pending](https://img.shields.io/badge/LEAP-import%20verification%20pending-f57c00)](docs/leap_scenarios_2023_2050_en.md)
 
 </div>
 
 > [!IMPORTANT]
-> The project is at the historical-analysis and input-data quality-control stage. LEAP decarbonisation scenarios have not yet been built; this repository provides the transparent foundation for their future development.
+> Historical analysis, a 2023-calibrated exploratory scenario design, a LEAP import workbook and reproducible figures are available. The final desktop-LEAP import-and-export check remains necessary before the numbers are described as LEAP-calculated results.
 
 ## Why this project
 
 Emissions from *Industrial Processes and Product Use* (IPPU) are a material, but not always directly comparable, component of Kazakhstan’s national greenhouse-gas inventory. This project brings together official UNFCCC submissions and BNS production statistics to:
 
 ```text
-collect sources → extract series → verify definitions → compare data → prepare LEAP inputs
+collect sources → extract series → verify definitions → compare data → calibrate 2023 → test exploratory pathways
 ```
 
-At this stage, the output is a reproducible dataset and quality-assurance protocol. It does not substitute for the future LEAP model or present scenario projections as completed results.
+The project separates verified historical evidence from scenario assumptions. It reports a transparent selected process-emissions boundary, not a forecast for the entire national IPPU sector.
 
 ## What is ready
 
@@ -36,7 +36,8 @@ At this stage, the output is a reproducible dataset and quality-assurance protoc
 | Production data | available BNS long and annual series | extracted and documented |
 | Comparability assessment | clinker, lime, iron/steel, ferroalloys, aluminium, zinc | NID/NIR methodology review complete |
 | Article figures and tables | trend, composition, CRF–CRT | ready for article drafting |
-| LEAP model and scenarios | 2030/2050 | subsequent work |
+| Exploratory 2023–2050 pathways | Baseline, Moderate, Ambitious | ready; LEAP import verification pending |
+| LEAP exchange workbook | Current Accounts and scenario expressions | ready for import |
 
 ## Core methodological rule
 
@@ -56,6 +57,10 @@ For example, Portland-cement output cannot be directly compared with clinker act
 | review validated findings | [preliminary results](docs/preliminary_results_en.md) |
 | access figures and Results wording | [article analysis](docs/article_analysis_en.md) |
 | verify process boundaries and activity data | [NID/NIR review](docs/process_methodology_review_en.md) |
+| substantiate the research gap and draft the Introduction | [literature review](docs/literature_review_en.md) |
+| see what can be written before LEAP | [manuscript-writing status](docs/article_writing_status_en.md) |
+| review scenario assumptions, results and limits | [scenario protocol](docs/leap_scenarios_2023_2050_en.md) |
+| import or verify the model in LEAP | [LEAP exchange files](outputs/README.md) |
 | use the revised abstract | [English conference draft](docs/abstract_draft_en.md) |
 | locate all documents | [documentation index](docs/README_en.md) |
 | understand the data layout | [data registry](data/README_en.md) |
@@ -69,6 +74,7 @@ python scripts/extract_ippu_emissions.py
 python scripts/extract_ippu_activity_data.py
 python scripts/compare_unfccc_versions.py
 python scripts/compare_bns_unfccc_2021.py
+python scripts/analyze_leap_scenarios.py
 ```
 
 Review arguments and paths before running: the scripts assume this repository layout and do not modify files in `data/raw/`.
@@ -82,6 +88,8 @@ Review arguments and paths before running: the scripts assume this repository la
 │   ├── processed/    # reproducible CSV extractions and comparisons
 │   └── metadata/     # source registry, templates and crosswalk
 ├── docs/              # bilingual methodological documentation
+├── figures/            # publication figures and index
+├── outputs/            # LEAP import workbook
 ├── scripts/           # extraction, comparison and quality control
 ├── research_design_ru.md
 └── research_design_en.md
@@ -95,12 +103,22 @@ Review arguments and paths before running: the scripts assume this repository la
 
 The complete source register, coverage and limitations are available in [metadata](data/metadata/README_en.md).
 
-## Next stage
+## Exploratory scenario results
 
-1. Draft the Methods, Results and Discussion sections using the prepared figures, tables and methodology review.
-2. Verify citations, units, GWPs and indicator definitions before submission.
-3. If needed, extend BNS clinker/steel series and obtain disaggregated primary-aluminium data.
-4. Use harmonised data for a LEAP model as separate subsequent work.
+| Scenario | 2030, kt CO2eq | 2050, kt CO2eq |
+|---|---:|---:|
+| Baseline | 23,552 | 23,552 |
+| Moderate mitigation | 20,715 | 14,827 |
+| Ambitious mitigation | 17,182 | 7,761 |
+
+The figures and complete data table are available in the [scenario protocol](docs/leap_scenarios_2023_2050_en.md). They exclude F-gases, aluminium PFCs, several minor IPPU sources and industrial-combustion emissions.
+
+## Remaining work before submission
+
+1. Import the workbook into LEAP, run the three scenarios and record an export-to-CSV check against the repository results.
+2. Write the scenario Methods, Results, integrated Discussion and Conclusion using the documented boundary and limitations.
+3. Verify citations, units, GWPs, figures and references before submission.
+4. Add sensitivity cases only if new evidence supports alternative activity or technology assumptions.
 
 Details: [remaining data tasks](docs/data_collection_remaining_en.md).
 

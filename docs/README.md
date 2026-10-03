@@ -8,6 +8,10 @@ English version: [README_en.md](README_en.md).
 | [Предварительные результаты](preliminary_results.md) | проверенные числа и корректная интерпретация сравнений |
 | [Анализ для статьи](article_analysis.md) | историческая динамика, структура IPPU, CRF–CRT и готовые подписи рисунков |
 | [Проверка методов NID/NIR](process_methodology_review.md) | границы процессов, activity data и статус сопоставимости БНС–UNFCCC |
+| [Обзор литературы](literature_review.md) | research gap, позиционирование статьи и 15 исходных работ |
+| [Статус написания статьи](article_writing_status.md) | что можно завершить сейчас и что требует LEAP-сценариев |
+| [Черновик Results и Discussion](manuscript_historical_results_discussion.md) | готовый исторический результат и методическое обсуждение для рукописи |
+| [Сценарии IPPU 2023–2050](leap_scenarios_2023_2050.md) | допущения, результаты, границы модели и проверка LEAP |
 | [Обновлённый abstract](abstract_draft_ru.md) | англоязычный текст для статьи и русский рабочий перевод |
 | [Оставшийся сбор данных](data_collection_remaining.md) | необязательные расширения базы данных |
 | [Ручная загрузка UNFCCC](manual_unfccc_download.md) | архивная инструкция: файлы уже получены |
