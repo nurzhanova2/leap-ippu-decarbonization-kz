@@ -32,6 +32,12 @@ F-gases, aluminium PFC emissions, lead and other non-listed IPPU sources, and in
 
 Each branch follows `Interp(2024, base, 2030, base × f2030, 2050, base × f2050)`.
 
+### Interpretation and rationale
+
+The factors are **author-selected analytical sensitivity assumptions**. They represent progressively deeper portfolios of recognised measures, not technology-specific abatement potentials, official Kazakhstan targets, a least-cost solution or a plant-level deployment forecast. In broad terms, mineral-process cases represent material/clinker substitution, process improvements and, in the deeper case, capture of residual calcination emissions; metal cases represent material efficiency, scrap/EAF routes where applicable, low-carbon reduction and/or capture; chemical cases represent optimisation, nitric-acid N2O abatement, route change and residual-emission control.
+
+The evidence supports the direction and grouping of these portfolios, but not the exact numerical factors for Kazakhstan. Their full rationale, scope and source list are in [Rationale for exploratory mitigation scenarios](scenario_rationale_en.md). The results must therefore be read as the consequence of stated assumptions under a constant 2024 activity basis.
+
 ## Results
 
 | Scenario | 2030, kt CO2eq | 2050, kt CO2eq | Reduction vs baseline, 2030 | Reduction vs baseline, 2050 |

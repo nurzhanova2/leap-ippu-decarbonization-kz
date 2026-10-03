@@ -60,6 +60,7 @@
 | обосновать research gap и написать Introduction | [обзор литературы](docs/literature_review.md) |
 | понять, что можно написать до LEAP | [статус рукописи](docs/article_writing_status.md) |
 | проверить допущения, результаты и границы сценариев | [протокол сценариев](docs/leap_scenarios_2023_2050.md) |
+| проверить описания портфелей мер и границу доказательной базы коэффициентов | [обоснование сценариев](docs/scenario_rationale.md) |
 | импортировать или проверить модель в LEAP | [файлы обмена с LEAP](outputs/README.md) |
 | использовать обновлённый abstract | [английский conference draft](docs/abstract_draft_en.md) |
 | найти все документы | [индекс документации](docs/README.md) |

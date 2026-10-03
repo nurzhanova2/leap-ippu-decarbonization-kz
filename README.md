@@ -60,6 +60,7 @@ For example, Portland-cement output cannot be directly compared with clinker act
 | substantiate the research gap and draft the Introduction | [literature review](docs/literature_review_en.md) |
 | see what can be written before LEAP | [manuscript-writing status](docs/article_writing_status_en.md) |
 | review scenario assumptions, results and limits | [scenario protocol](docs/leap_scenarios_2023_2050_en.md) |
+| review measure narratives and the evidence boundary for scenario factors | [scenario rationale](docs/scenario_rationale_en.md) |
 | import or verify the model in LEAP | [LEAP exchange files](outputs/README.md) |
 | use the revised abstract | [English conference draft](docs/abstract_draft_en.md) |
 | locate all documents | [documentation index](docs/README_en.md) |
