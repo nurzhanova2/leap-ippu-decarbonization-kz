@@ -58,19 +58,19 @@ The pig-iron comparison also requires a boundary qualification. BNS reports 3.62
 
 Sources: BNS 2021 physical-production statistics; Kazakhstan CRT 2025 Table 2(I).A–H; Kazakhstan NID 2025; authors’ calculations. Detailed source boundaries are documented in the project’s process-methodology review.
 
-### 3.5. Exploratory IPPU process-emissions pathways, 2023–2050
+### 3.5. LEAP IPPU process-emissions pathways, 2024–2050
 
-Exploratory pathways were calculated from a 2023 calibration of selected process-emission branches reported in CRT 2025. The boundary includes mineral-industry, metal-industry and chemical-industry processes, but excludes F-gases, aluminium PFCs, several minor IPPU sources and emissions from industrial fuel combustion. The 2023 total within this boundary is 23,552 kt CO2eq; it is therefore not comparable to the national 2023 IPPU total of 26,773 kt CO2eq as a complete-sector projection.
+LEAP pathways were calculated from a 2024 Current Accounts calibration of selected process-emission branches. The boundary includes mineral-industry, metal-industry and chemical-industry processes, but excludes F-gases, aluminium PFCs, several minor IPPU sources and emissions from industrial fuel combustion. The 2024 selected-boundary total is 23,552 kt CO2eq; it is therefore not a complete-sector projection.
 
-The Baseline holds each included flow constant from 2023 through 2050. Under Moderate mitigation, aggregate included emissions decline to 20,715 kt CO2eq in 2030 and 14,827 kt CO2eq in 2050, reductions of 2,837 and 8,725 kt CO2eq relative to Baseline. Under Ambitious mitigation, they decline to 17,182 kt CO2eq in 2030 and 7,761 kt CO2eq in 2050, reductions of 6,370 and 15,791 kt CO2eq, respectively (Figure 4). The results reflect linear emissions multipliers by broad process group, rather than an endogenous representation of output growth, individual technologies, capital turnover or cost.
+The Baseline holds each included flow constant from 2024 through 2050. Under Moderate mitigation, aggregate included emissions decline to 20,715 kt CO2eq in 2030 and 14,827 kt CO2eq in 2050, reductions of 2,837 and 8,725 kt CO2eq relative to Baseline. Under Ambitious mitigation, they decline to 17,157 kt CO2eq in 2030 and 7,736 kt CO2eq in 2050, reductions of 6,395 and 15,816 kt CO2eq, respectively (Figure 4). The results reflect linear emissions multipliers by broad process group, rather than an endogenous representation of output growth, individual technologies, capital turnover or cost.
 
-![Figure 4. Exploratory process-emissions pathways](../figures/figure_4_leap_ippu_scenario_pathways_2023_2050.png)
+![Figure 4. LEAP process-emissions pathways](../figures/figure_4_leap_ippu_scenario_pathways_2024_2050.png)
 
-*Figure 4. Exploratory pathways for the selected IPPU process-emissions boundary, Kazakhstan, 2023–2050, kt CO2eq (AR5). Baseline is constant by construction.*
+*Figure 4. LEAP pathways for the selected IPPU process-emissions boundary, Kazakhstan, 2024–2050, kt CO2eq (AR5). Baseline is constant by construction.*
 
 The decomposition of avoided emissions shows that metal-industry processes contribute the largest absolute reduction in both mitigation cases, followed by mineral-industry processes (Figure 5). This is a consequence of their larger 2023 calibrated emissions within the model boundary and should not be interpreted as evidence that any particular technology or policy is more feasible in Kazakhstan.
 
-![Figure 5. Avoided emissions by process group](../figures/figure_5_leap_ippu_avoided_emissions_2030_2050.png)
+![Figure 5. Avoided emissions by process group](../figures/figure_5_leap_ippu_avoided_emissions_2024_2050.png)
 
 *Figure 5. Avoided emissions relative to the flat Baseline, by broad process group. The chart excludes sources outside the selected scenario boundary.*
 
@@ -94,4 +94,4 @@ The observed change in IPPU composition also matters for model scope. A Kazakhst
 
 Several limitations should qualify the findings. First, the CRF–CRT CO2eq comparison spans different GWP frameworks; it can indicate where methodological investigation is required but cannot isolate inventory revision effects. Second, BNS long series are not yet available in a directly comparable form for all priority products, particularly clinker and steel. Third, the study relies on publicly available inventory documentation and cannot independently audit confidential plant data. Fourth, the exploratory pathways use exogenous emissions multipliers and a flat baseline. They quantify the scale implied by stated assumptions, but do not estimate technology-specific mitigation potential, cost, investment or policy feasibility.
 
-These limitations define the next refinement stage. Desktop-LEAP execution should verify the imported expressions and subsequent work should test alternative activity-data assumptions, technology pathways and emission factors. The current results should be interpreted as explicitly bounded sensitivity pathways, not as a quantified forecast of the entire IPPU sector.
+The model was executed in LEAP 2026.5.0.1 after correcting the CH4 and N2O input units. Subsequent work should test alternative activity-data assumptions, technology pathways and emission factors. The current results should be interpreted as explicitly bounded sensitivity pathways, not as a quantified forecast of the entire IPPU sector.

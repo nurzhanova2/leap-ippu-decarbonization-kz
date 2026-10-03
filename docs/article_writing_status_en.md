@@ -4,14 +4,14 @@
 
 ## Main conclusion
 
-The historical and methodological material is complete, and the repository now contains a 2023-calibrated exploratory scenario design, a LEAP import workbook, reproducible tables and Figures 4–5. The manuscript can be drafted as a complete scenario article, provided its claims retain the explicit model boundary and exploratory status. One technical step remains: import the workbook into desktop LEAP, run it, and record agreement between exported results and the repository CSV.
+The historical and methodological material is complete, and the repository now contains a 2024-calibrated LEAP run, a corrected import workbook, reproducible tables and Figures 4–5. The manuscript can be drafted as a complete scenario article, provided its claims retain the explicit model boundary and exploratory status.
 
 | Article section | Status before LEAP | What can be completed now | What must wait for LEAP |
 |---|---|---|---|
 | Introduction / literature review | ready | context, gap, contribution and research questions | minor revision only |
-| Methods | ready | historical sources, comparability protocol, 2023 calibration, boundary and scenario expressions | record desktop-LEAP verification |
+| Methods | ready | historical sources, comparability protocol, 2024 calibration, boundary and scenario expressions | — |
 | Results: historical part | ready | 1990–2023 trend, IPPU composition, CRF–CRT and activity-data cases | — |
-| Results: scenarios | ready as exploratory output | Baseline, Moderate and Ambitious results; Figures 4–5 | LEAP export check |
+| Results: scenarios | ready | Baseline, Moderate and Ambitious LEAP results; Figures 4–5 | — |
 | Discussion and conclusion | ready to draft | data comparability, scenario implications and limitations | no claims beyond the boundary or assumptions |
 
 ## What can be written now
@@ -34,7 +34,6 @@ The current pathways are not evidence for these claims; they are transparent sen
 
 ## Final route for the present article
 
-1. Complete the desktop-LEAP import/export validation and save its exported table.
-2. Integrate the scenario protocol into Methods and Results.
-3. Revise the abstract and conclusion to make the scope explicit.
-4. Carry out a final citation, unit, GWP and figure audit.
+1. Integrate the scenario protocol into Methods and Results.
+2. Revise the abstract and conclusion to make the scope explicit.
+3. Carry out a final citation, unit, GWP and figure audit.

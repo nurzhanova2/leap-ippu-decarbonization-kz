@@ -31,6 +31,7 @@ To establish a reproducible evidence base for RQ1–RQ4: preserve original sourc
 | `data/processed/bns_ippu_activity_data_2021_annual.csv` | 21 candidate products, 2021 | ready for controlled comparison |
 | `data/processed/bns_ippu_activity_data_2023_annual.csv` | 21 candidate products, 2023 | ready for controlled comparison |
 | `data/processed/bns_vs_crt_2025_activity_comparison_2021.csv` | seven screened 2021 comparisons | interpretation recorded below |
+| `data/processed/leap_ippu_scenario_results_2024_2050.csv` | annual corrected LEAP scenario results | ready for article use within the stated boundary |
 
 Original files were not edited. Extraction scripts read XLSX files and write separate CSV outputs, retaining product labels, units, values and BNS notation.
 
@@ -47,3 +48,9 @@ Original files were not edited. Extraction scripts read XLSX files and write sep
 Differences must first be classified as a unit, product-definition, process-boundary or methodology issue. Only residual differences between genuinely comparable measures may be discussed as possible activity-data inconsistency.
 
 Core collection and priority NID/NIR method review are complete. The remaining non-blocking enrichment tasks are longer BNS series for clinker and steel, disaggregated primary-aluminium data, and optional public corroboration of the Kazzinc Waelz stream. They are listed in [Remaining data collection](data_collection_remaining_en.md).
+
+## 3 October 2026 — corrected LEAP calculation
+
+The user provided `Kazakhstan_IPPU_LEAP_results_corrected.xlsx`, exported from LEAP 2026.5.0.1 for the `Kazakhstan IPPU Decarbonization` area. The unmodified file is retained under `data/raw/leap/` (SHA-256 `fd0e4648c9272366d164a2e2de1f45b2d5f529e4930db4eb484f78a58e62c299`) and registered in the source registry.
+
+The export confirms Current Accounts 2024, end year 2050, the `Non Energy Effect Loading` variable, linear `Interp()` expressions and AR5 100-year GWPs. Before the rerun, two non-CO2 units were corrected: ferroalloy CH4, 36.894 t rather than 36,894 t; and nitric-acid N2O, 592.4 t rather than 592,400 t. The resulting CO2eq totals are 23,551.9 kt for Baseline in 2030 and 2050; 20,714.9 and 14,826.9 kt for Moderate; and 17,156.6 and 7,735.8 kt for Ambitious. The full table and figures are in the [scenario protocol](leap_scenarios_2023_2050_en.md).

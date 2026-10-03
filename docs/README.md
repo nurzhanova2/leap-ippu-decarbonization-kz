@@ -11,7 +11,7 @@ English version: [README_en.md](README_en.md).
 | [Обзор литературы](literature_review.md) | research gap, позиционирование статьи и 15 исходных работ |
 | [Статус написания статьи](article_writing_status.md) | что можно завершить сейчас и что требует LEAP-сценариев |
 | [Черновик Results и Discussion](manuscript_historical_results_discussion.md) | готовый исторический результат и методическое обсуждение для рукописи |
-| [Сценарии IPPU 2023–2050](leap_scenarios_2023_2050.md) | допущения, результаты, границы модели и проверка LEAP |
+| [Сценарии IPPU 2024–2050](leap_scenarios_2023_2050.md) | допущения, результаты, границы модели и LEAP-расчёт |
 | [Обновлённый abstract](abstract_draft_ru.md) | англоязычный текст для статьи и русский рабочий перевод |
 | [Оставшийся сбор данных](data_collection_remaining.md) | необязательные расширения базы данных |
 | [Ручная загрузка UNFCCC](manual_unfccc_download.md) | архивная инструкция: файлы уже получены |

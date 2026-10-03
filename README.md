@@ -14,7 +14,7 @@
 </div>
 
 > [!IMPORTANT]
-> Historical analysis, a 2023-calibrated exploratory scenario design, a LEAP import workbook and reproducible figures are available. The final desktop-LEAP import-and-export check remains necessary before the numbers are described as LEAP-calculated results.
+> Historical analysis, a 2024-calibrated LEAP scenario design, an import workbook and verified CO2eq results are available. Results are reported only for the explicitly defined process-emissions boundary.
 
 ## Why this project
 
@@ -36,7 +36,7 @@ The project separates verified historical evidence from scenario assumptions. It
 | Production data | available BNS long and annual series | extracted and documented |
 | Comparability assessment | clinker, lime, iron/steel, ferroalloys, aluminium, zinc | NID/NIR methodology review complete |
 | Article figures and tables | trend, composition, CRF–CRT | ready for article drafting |
-| Exploratory 2023–2050 pathways | Baseline, Moderate, Ambitious | ready; LEAP import verification pending |
+| LEAP scenario pathways, 2024–2050 | Baseline, Moderate, Ambitious | calculated and CO2eq-verified |
 | LEAP exchange workbook | Current Accounts and scenario expressions | ready for import |
 
 ## Core methodological rule
@@ -109,16 +109,15 @@ The complete source register, coverage and limitations are available in [metadat
 |---|---:|---:|
 | Baseline | 23,552 | 23,552 |
 | Moderate mitigation | 20,715 | 14,827 |
-| Ambitious mitigation | 17,182 | 7,761 |
+| Ambitious mitigation | 17,157 | 7,736 |
 
 The figures and complete data table are available in the [scenario protocol](docs/leap_scenarios_2023_2050_en.md). They exclude F-gases, aluminium PFCs, several minor IPPU sources and industrial-combustion emissions.
 
 ## Remaining work before submission
 
-1. Import the workbook into LEAP, run the three scenarios and record an export-to-CSV check against the repository results.
-2. Write the scenario Methods, Results, integrated Discussion and Conclusion using the documented boundary and limitations.
-3. Verify citations, units, GWPs, figures and references before submission.
-4. Add sensitivity cases only if new evidence supports alternative activity or technology assumptions.
+1. Write the scenario Methods, Results, integrated Discussion and Conclusion using the documented boundary and limitations.
+2. Verify citations, units, GWPs, figures and references before submission.
+3. Add sensitivity cases only if new evidence supports alternative activity or technology assumptions.
 
 Details: [remaining data tasks](docs/data_collection_remaining_en.md).
 
