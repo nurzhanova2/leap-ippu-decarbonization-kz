@@ -1,27 +1,27 @@
 <div align="center">
 
-# LEAP-Based modelling of decarbonization pathways in Kazakhstan’s IPPU sector
+# LEAP-Based modeling of Decarbonization pathways in the IPPU sector of Kazakhstan
 
-### Historical evidence, transparent scenario design and reproducible LEAP-ready inputs
+### Historical evidence, exploratory LEAP pathways and reproducible research materials
 
 **Language:** [Русский](README_ru.md) · [English](README.md)
 
-[![Status — exploratory scenarios ready](https://img.shields.io/badge/status-exploratory%20scenarios%20ready-2e7d32)](docs/leap_scenarios_2023_2050_en.md)
+[![Status — article evidence package ready](https://img.shields.io/badge/status-article%20evidence%20package%20ready-2e7d32)](docs/article_writing_status_en.md)
 [![Coverage — Kazakhstan, 1990–2023](https://img.shields.io/badge/coverage-Kazakhstan%2C%201990–2023-1565c0)](research_design_en.md)
 [![Sector — IPCC 2 IPPU](https://img.shields.io/badge/sector-IPCC%202%20IPPU-6a1b9a)](data/metadata/bns_ippu_category_crosswalk.csv)
-[![LEAP — import verification pending](https://img.shields.io/badge/LEAP-import%20verification%20pending-f57c00)](docs/leap_scenarios_2023_2050_en.md)
+[![LEAP — results verified](https://img.shields.io/badge/LEAP-results%20verified-2e7d32)](docs/leap_scenarios_2023_2050_en.md)
 
 </div>
 
 > [!IMPORTANT]
-> Historical analysis, a 2024-calibrated LEAP scenario design, an import workbook and verified CO2eq results are available. Results are reported only for the explicitly defined process-emissions boundary.
+> Historical analysis, a corrected 2024-calibrated LEAP implementation, an import workbook, verified AR5 CO2eq results, scenario rationale and conference presentation are available. Results are reported only for the explicitly defined process-emissions boundary.
 
 ## Why this project
 
 Emissions from *Industrial Processes and Product Use* (IPPU) are a material, but not always directly comparable, component of Kazakhstan’s national greenhouse-gas inventory. This project brings together official UNFCCC submissions and BNS production statistics to:
 
 ```text
-collect sources → extract series → verify definitions → compare data → calibrate 2023 → test exploratory pathways
+collect sources → extract series → verify definitions → compare data → calibrate 2024 → test exploratory pathways
 ```
 
 The project separates verified historical evidence from scenario assumptions. It reports a transparent selected process-emissions boundary, not a forecast for the entire national IPPU sector.
@@ -35,9 +35,11 @@ The project separates verified historical evidence from scenario assumptions. It
 | UNFCCC activity data | CRT 2025 | extracted |
 | Production data | available BNS long and annual series | extracted and documented |
 | Comparability assessment | clinker, lime, iron/steel, ferroalloys, aluminium, zinc | NID/NIR methodology review complete |
-| Article figures and tables | trend, composition, CRF–CRT | ready for article drafting |
+| Article figures and tables | trend, composition, CRF–CRT, activity-data cases, scenarios | ready |
 | LEAP scenario pathways, 2024–2050 | Baseline, Moderate, Ambitious | calculated and CO2eq-verified |
-| LEAP exchange workbook | Current Accounts and scenario expressions | ready for import |
+| LEAP exchange workbook | Current Accounts and scenario expressions | imported, run and export-verified |
+| Scenario rationale | measure portfolios and claims boundary | complete |
+| Conference presentation | scientific conference deck | available in Google Slides |
 
 ## Core methodological rule
 
@@ -58,7 +60,7 @@ For example, Portland-cement output cannot be directly compared with clinker act
 | access figures and Results wording | [article analysis](docs/article_analysis_en.md) |
 | verify process boundaries and activity data | [NID/NIR review](docs/process_methodology_review_en.md) |
 | substantiate the research gap and draft the Introduction | [literature review](docs/literature_review_en.md) |
-| see what can be written before LEAP | [manuscript-writing status](docs/article_writing_status_en.md) |
+| see the manuscript’s current completion status | [manuscript-writing status](docs/article_writing_status_en.md) |
 | review scenario assumptions, results and limits | [scenario protocol](docs/leap_scenarios_2023_2050_en.md) |
 | review measure narratives and the evidence boundary for scenario factors | [scenario rationale](docs/scenario_rationale_en.md) |
 | view the conference presentation | [Google Slides presentation](https://docs.google.com/presentation/d/1MO3Ly5cWBq1vKcamaa5fa2bCgeq9VQpp85bNB47nBWk/edit?usp=sharing) |
@@ -117,9 +119,10 @@ The figures and complete data table are available in the [scenario protocol](doc
 
 ## Remaining work before submission
 
-1. Write the scenario Methods, Results, integrated Discussion and Conclusion using the documented boundary and limitations.
-2. Verify citations, units, GWPs, figures and references before submission.
-3. Add sensitivity cases only if new evidence supports alternative activity or technology assumptions.
+1. Assemble the complete manuscript: Introduction, Methods, Results, Discussion and Conclusion, using the existing bilingual drafts and the documented scenario boundary.
+2. Add and standardise in-text citations and the final reference list in the target conference or journal style.
+3. Perform a final scientific and editorial audit: units, AR5 GWPs, figures, tables, claims, author details and submission format.
+4. Add further sensitivity cases only if new evidence supports alternative activity-data or technology assumptions.
 
 Details: [remaining data tasks](docs/data_collection_remaining_en.md).
 
