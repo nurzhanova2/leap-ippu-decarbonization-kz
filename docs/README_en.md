@@ -13,6 +13,7 @@
 | [Results and Discussion draft](manuscript_historical_results_discussion_en.md) | article-ready historical results and methodological discussion |
 | [IPPU scenarios 2024–2050](leap_scenarios_2023_2050_en.md) | assumptions, results, model boundary and LEAP calculation |
 | [Scenario rationale](scenario_rationale_en.md) | evidence-informed measure portfolios, factor interpretation and claims boundary |
+| [IAMC speaker script](presentation_speaker_script_en.md) | 11–12 minute English oral script, timings and anticipated Q&A |
 | [Revised abstract](abstract_draft_en.md) | conference-ready English text and Russian working translation |
 | [Remaining data collection](data_collection_remaining_en.md) | non-essential database extensions |
 | [Manual UNFCCC download](manual_unfccc_download_en.md) | archival procedure; files are already acquired |

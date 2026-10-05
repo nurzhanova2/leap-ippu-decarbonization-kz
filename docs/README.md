@@ -13,6 +13,7 @@ English version: [README_en.md](README_en.md).
 | [Черновик Results и Discussion](manuscript_historical_results_discussion.md) | готовый исторический результат и методическое обсуждение для рукописи |
 | [Сценарии IPPU 2024–2050](leap_scenarios_2023_2050.md) | допущения, результаты, границы модели и LEAP-расчёт |
 | [Обоснование сценариев](scenario_rationale.md) | портфели мер, интерпретация коэффициентов и граница допустимых выводов |
+| [Текст доклада IAMC](presentation_speaker_script.md) | английский текст выступления на 11–12 минут, тайминг и ожидаемые вопросы |
 | [Обновлённый abstract](abstract_draft_ru.md) | англоязычный текст для статьи и русский рабочий перевод |
 | [Оставшийся сбор данных](data_collection_remaining.md) | необязательные расширения базы данных |
 | [Ручная загрузка UNFCCC](manual_unfccc_download.md) | архивная инструкция: файлы уже получены |
