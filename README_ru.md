@@ -61,6 +61,7 @@
 | понять, что можно написать до LEAP | [статус рукописи](docs/article_writing_status.md) |
 | проверить допущения, результаты и границы сценариев | [протокол сценариев](docs/leap_scenarios_2023_2050.md) |
 | проверить описания портфелей мер и границу доказательной базы коэффициентов | [обоснование сценариев](docs/scenario_rationale.md) |
+| посмотреть презентацию для конференции | [презентация Google Slides](https://docs.google.com/presentation/d/1MO3Ly5cWBq1vKcamaa5fa2bCgeq9VQpp85bNB47nBWk/edit?usp=sharing) |
 | импортировать или проверить модель в LEAP | [файлы обмена с LEAP](outputs/README.md) |
 | использовать обновлённый abstract | [английский conference draft](docs/abstract_draft_en.md) |
 | найти все документы | [индекс документации](docs/README.md) |
