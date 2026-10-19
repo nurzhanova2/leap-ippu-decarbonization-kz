@@ -1,9 +1,14 @@
 """Create reproducible tables and article figures from LEAP scenario assumptions.
 
 The calculations duplicate the formulas written to the LEAP import workbook:
-Current Accounts is the 2024 LEAP calibration, Baseline is flat after 2024,
-and mitigation scenarios linearly interpolate to their 2030 and 2050 targets.
-Only branches included in the LEAP IPPU model are reported.
+Current Accounts is the 2024 base year (2023 inventory proxy), Baseline is
+flat after 2024, and mitigation scenarios linearly interpolate to their 2030
+and 2050 targets. Only branches included in the LEAP IPPU model are reported.
+
+--inventory crt2025 (default) uses the CRT 2025 proxy base of the archived
+conference version; --inventory crt2026 uses the CRT 2026 inventory 2024 base
+(data/metadata/leap_scenario_parameters_crt2026.csv) and writes outputs with the
+suffix _crt2026.
 """
 
 from __future__ import annotations
@@ -13,50 +18,41 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 
+from inventory_versions import VERSIONS, selected_version
+
 
 PROCESSED = Path("data/processed")
 FIGURES = Path("figures")
+VERSION = selected_version()
+SUFFIX = VERSIONS[VERSION]["suffix"]
+PARAMETERS = Path(f"data/metadata/leap_scenario_parameters{SUFFIX}.csv")
+TAG = "" if VERSION == "crt2025" else " (CRT 2026 inventory 2024 base)"
 
-# Base values in tonnes of gas: identical to the LEAP import workbook.
-BASE = {
-    "Cement clinker": ("Mineral industry", "CO2", 4_345_666.0),
-    "Lime": ("Mineral industry", "CO2", 721_506.0),
-    "Glass": ("Mineral industry", "CO2", 24_480.0),
-    "Other carbonate uses": ("Mineral industry", "CO2", 4_545_014.3),
-    "Pig iron": ("Metal industry", "CO2", 5_041_002.44),
-    "Steel": ("Metal industry", "CO2", 432_644.70),
-    "Sinter": ("Metal industry", "CO2", 3_538_879.52),
-    "Pellets": ("Metal industry", "CO2", 287_330.44),
-    "Ferroalloys (CO2)": ("Metal industry", "CO2", 3_425_548.28),
-    "Ferroalloys (CH4)": ("Metal industry", "CH4", 36.894),
-    "Aluminium": ("Metal industry", "CO2", 403_736.76),
-    "Zinc": ("Metal industry", "CO2", 274_662.10),
-    "Ammonia": ("Chemical industry", "CO2", 326_017.90),
-    "Nitric acid": ("Chemical industry", "N2O", 592.4),
-    "Calcium carbide": ("Chemical industry", "CO2", 27_426.0),
+# Base values in tonnes of gas and 2030/2050 factors, shared with
+# scripts/fill_leap_import_template.py. In the LEAP import workbook the CH4
+# (ferroalloys) and N2O (nitric acid) branches are entered in kg, the template
+# unit, i.e. 1000 times the tonne values used here.
+with PARAMETERS.open(encoding="utf-8", newline="") as handle:
+    PARAMS = list(csv.DictReader(handle))
+
+BASE = {row["process"]: (row["group"], row["gas"], float(row["base_t"])) for row in PARAMS}
+FACTORS = {
+    row["process"]: {
+        "Moderate mitigation": (float(row["moderate_f2030"]), float(row["moderate_f2050"])),
+        "Ambitious mitigation": (float(row["ambitious_f2030"]), float(row["ambitious_f2050"])),
+    }
+    for row in PARAMS
 }
 
 # AR5 GWP100. The raw CH4 and N2O LEAP effects are converted for aggregate charts.
 GWP = {"CO2": 1, "CH4": 28, "N2O": 265}
 
-MINERAL = {"Cement clinker", "Lime", "Glass", "Other carbonate uses"}
-METALS = {"Pig iron", "Steel", "Sinter", "Pellets", "Ferroalloys (CO2)",
-          "Ferroalloys (CH4)", "Aluminium", "Zinc"}
-CHEMICALS = {"Ammonia", "Nitric acid", "Calcium carbide"}
-
 
 def factors(name: str, scenario: str) -> tuple[float, float]:
     if scenario == "Baseline":
         return 1.0, 1.0
-    if scenario == "Moderate mitigation":
-        return (0.85, 0.60) if name in MINERAL else (0.90, 0.65)
-    if scenario == "Ambitious mitigation":
-        if name in MINERAL:
-            return 0.70, 0.30
-        if name in METALS:
-            return 0.75, 0.35
-        if name in CHEMICALS:
-            return 0.70, 0.30
+    if scenario in FACTORS[name]:
+        return FACTORS[name][scenario]
     raise ValueError(scenario)
 
 
@@ -104,7 +100,7 @@ def main() -> None:
             for group in by_group:
                 group_totals[scenario][group].append(by_group[group])
 
-    write_csv(PROCESSED / "leap_ippu_scenario_results_2024_2050.csv", detail_rows)
+    write_csv(PROCESSED / f"leap_ippu_scenario_results_2024_2050{SUFFIX}.csv", detail_rows)
 
     plt.style.use("seaborn-v0_8-whitegrid")
     colors = {"Baseline": "#455A64", "Moderate mitigation": "#F57C00", "Ambitious mitigation": "#00796B"}
@@ -115,14 +111,15 @@ def main() -> None:
             idx = years.index(year)
             ax.scatter(year, totals[scenario][idx], color=colors[scenario], s=24, zorder=3)
     ax.axvline(2024, color="#616161", linewidth=0.9, linestyle="--")
-    ax.text(2024.15, max(totals["Baseline"]) * 1.012, "calibration year", fontsize=8, color="#424242")
+    ax.text(2024.15, max(totals["Baseline"]) * 1.012, "calibration year" if VERSION == "crt2025" else "inventory base year",
+            fontsize=8, color="#424242")
     ax.set_xlim(2024, 2050)
     ax.set_ylim(bottom=0)
     ax.set_xlabel("Year")
     ax.set_ylabel("kt CO$_2$eq (AR5)")
-    ax.set_title("LEAP IPPU scenario pathways, Kazakhstan, 2024–2050")
+    ax.set_title(f"LEAP IPPU scenario pathways, Kazakhstan, 2024–2050{TAG}")
     ax.legend(frameon=False, loc="upper right")
-    fig.savefig(FIGURES / "figure_4_leap_ippu_scenario_pathways_2024_2050.png", dpi=300)
+    fig.savefig(FIGURES / f"figure_4_leap_ippu_scenario_pathways_2024_2050{SUFFIX}.png", dpi=300)
     plt.close(fig)
 
     # Avoided emissions by broad process group, relative to flat Baseline.
@@ -148,9 +145,9 @@ def main() -> None:
     handles, labels = axes[0].get_legend_handles_labels()
     fig.supxlabel("Year", y=0.105)
     fig.legend(handles, labels, ncol=3, frameon=False, loc="lower center", bbox_to_anchor=(0.5, 0.005))
-    fig.suptitle("Avoided IPPU process emissions by group")
+    fig.suptitle(f"Avoided IPPU process emissions by group{TAG}")
     fig.subplots_adjust(left=0.10, right=0.98, top=0.86, bottom=0.22, wspace=0.02)
-    fig.savefig(FIGURES / "figure_5_leap_ippu_avoided_emissions_2024_2050.png", dpi=300)
+    fig.savefig(FIGURES / f"figure_5_leap_ippu_avoided_emissions_2024_2050{SUFFIX}.png", dpi=300)
     plt.close(fig)
 
     print("Wrote scenario table and figures.")

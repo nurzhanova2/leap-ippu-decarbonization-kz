@@ -1,22 +1,27 @@
-"""Extract IPPU activity data reported in CRT 2025 and CRF 2023 Table 2(I).A-H."""
+"""Extract IPPU activity data reported in CRT and CRF 2023 Table 2(I).A-H.
+
+--inventory crt2025 (default) writes CRF 2023 and CRT 2025 rows to the archived
+file; --inventory crt2026 writes CRT 2026 rows to a file with the suffix _crt2026.
+"""
 
 import csv
 from pathlib import Path
 import re
 from openpyxl import load_workbook
 
+from inventory_versions import VERSIONS, crt_workbooks, selected_version, workbook_year
 
-CRT_DIR = Path("data/raw/unfccc_crt_2025/extracted")
+
 CRF_DIR = Path("data/raw/unfccc_crf_2023/extracted")
-OUTPUT = Path("data/processed/unfccc_ippu_activity_data_1990_2023.csv")
+VERSION = selected_version()
+OUTPUT = Path(f"data/processed/unfccc_ippu_activity_data_1990_{VERSIONS[VERSION]['last_year']}{VERSIONS[VERSION]['suffix']}.csv")
 
 
 def numeric(value):
     return float(value) if isinstance(value, (int, float)) else None
 
 
-def crt_rows(path):
-    book = load_workbook(path, read_only=True, data_only=True)
+def crt_rows(name, book, version):
     sheet = book["Table2(I).A-H"]
     records = []
     for row in sheet.iter_rows(values_only=True):
@@ -28,9 +33,9 @@ def crt_rows(path):
         if not match:
             continue
         records.append({
-            "source": "UNFCCC CRT 2025",
-            "submission_date": "2025-04-15",
-            "inventory_year": re.search(r"V1\.0-(\d{4})-", path.name).group(1),
+            "source": VERSIONS[version]["source"],
+            "submission_date": VERSIONS[version]["submission_date"],
+            "inventory_year": workbook_year(name),
             "category_code": match.group(1),
             "category_label": match.group(2).strip(),
             "activity_description": row[2],
@@ -81,10 +86,11 @@ def crf_rows(path):
 
 
 records = []
-for workbook in sorted(CRF_DIR.glob("*.xlsx")):
-    records.extend(crf_rows(workbook))
-for workbook in sorted(CRT_DIR.glob("*.xlsx")):
-    records.extend(crt_rows(workbook))
+if VERSION == "crt2025":
+    for workbook in sorted(CRF_DIR.glob("*.xlsx")):
+        records.extend(crf_rows(workbook))
+for name, book in crt_workbooks(VERSION):
+    records.extend(crt_rows(name, book, VERSION))
 
 with OUTPUT.open("w", encoding="utf-8", newline="") as handle:
     writer = csv.DictWriter(handle, fieldnames=records[0].keys())

@@ -1,44 +1,73 @@
-"""Compare common IPPU observations in CRF 2023 and CRT 2025."""
+"""Compare common IPPU observations in two UNFCCC submissions.
+
+Default: CRF 2023 vs CRT 2025 for 1990-2021 (archived output). With
+"--pair crt2025_crt2026": CRT 2025 vs CRT 2026 for 1990-2023, in the same
+format; both use AR5, so differences are recalculations.
+"""
 
 import csv
+import sys
 from pathlib import Path
 
 
-INPUT = Path("data/processed/unfccc_ippu_emissions_1990_2023.csv")
-OUTPUT = Path("data/processed/crf_2023_vs_crt_2025_ippu_comparison_1990_2021.csv")
+PAIRS = {
+    "crf2023_crt2025": {
+        "inputs": [Path("data/processed/unfccc_ippu_emissions_1990_2023.csv")],
+        "output": Path("data/processed/crf_2023_vs_crt_2025_ippu_comparison_1990_2021.csv"),
+        "old": ("UNFCCC CRF 2023", "crf_2023", "ar4", "crf"),
+        "new": ("UNFCCC CRT 2025", "crt_2025", "ar5", "crt"),
+        "years": range(1990, 2022),
+        "note": "Total CO2eq comparison combines CRF AR4 and CRT AR5 GWP frameworks; CO2-only difference is less affected by GWP changes.",
+    },
+    "crt2025_crt2026": {
+        "inputs": [Path("data/processed/unfccc_ippu_emissions_1990_2023.csv"),
+                   Path("data/processed/unfccc_ippu_emissions_1990_2024_crt2026.csv")],
+        "output": Path("data/processed/crt_2025_vs_crt_2026_ippu_comparison_1990_2023_crt2026.csv"),
+        "old": ("UNFCCC CRT 2025", "crt_2025", "ar5", "crt2025"),
+        "new": ("UNFCCC CRT 2026", "crt_2026", "ar5", "crt2026"),
+        "years": range(1990, 2024),
+        "note": "Both submissions use AR5 GWPs; differences are recalculations (see NID 2026).",
+    },
+}
+pair = sys.argv[sys.argv.index("--pair") + 1] if "--pair" in sys.argv else "crf2023_crt2025"
+spec = PAIRS[pair]
+old_source, old_name, old_gwp, old_short = spec["old"]
+new_source, new_name, new_gwp, new_short = spec["new"]
 
-with INPUT.open(encoding="utf-8") as handle:
-    rows = list(csv.DictReader(handle))
+rows = []
+for path in spec["inputs"]:
+    with path.open(encoding="utf-8") as handle:
+        rows.extend(csv.DictReader(handle))
 
 index = {(row["source"], row["inventory_year"], row["category_code"]): row for row in rows}
 records = []
-for year in range(1990, 2022):
+for year in spec["years"]:
     for code in sorted({row["category_code"] for row in rows if row["inventory_year"] == str(year)}):
-        crf = index.get(("UNFCCC CRF 2023", str(year), code))
-        crt = index.get(("UNFCCC CRT 2025", str(year), code))
-        if not crf or not crt:
+        old = index.get((old_source, str(year), code))
+        new = index.get((new_source, str(year), code))
+        if not old or not new:
             continue
-        crf_total = float(crf["total_ghg_kt_co2eq"])
-        crt_total = float(crt["total_ghg_kt_co2eq"])
-        crf_co2 = float(crf["co2_kt"])
-        crt_co2 = float(crt["co2_kt"])
+        old_total = float(old["total_ghg_kt_co2eq"])
+        new_total = float(new["total_ghg_kt_co2eq"])
+        old_co2 = float(old["co2_kt"])
+        new_co2 = float(new["co2_kt"])
         records.append({
             "inventory_year": year,
             "category_code": code,
-            "category_label": crt["category_label"],
-            "crf_2023_total_ghg_kt_co2eq_ar4": crf_total,
-            "crt_2025_total_ghg_kt_co2eq_ar5": crt_total,
-            "total_difference_crt_minus_crf_kt_co2eq": crt_total - crf_total,
-            "total_difference_percent_of_crf": (crt_total - crf_total) / crf_total * 100 if crf_total else "",
-            "crf_2023_co2_kt": crf_co2,
-            "crt_2025_co2_kt": crt_co2,
-            "co2_difference_crt_minus_crf_kt": crt_co2 - crf_co2,
-            "co2_difference_percent_of_crf": (crt_co2 - crf_co2) / crf_co2 * 100 if crf_co2 else "",
-            "interpretation_note": "Total CO2eq comparison combines CRF AR4 and CRT AR5 GWP frameworks; CO2-only difference is less affected by GWP changes.",
+            "category_label": new["category_label"],
+            f"{old_name}_total_ghg_kt_co2eq_{old_gwp}": old_total,
+            f"{new_name}_total_ghg_kt_co2eq_{new_gwp}": new_total,
+            f"total_difference_{new_short}_minus_{old_short}_kt_co2eq": new_total - old_total,
+            f"total_difference_percent_of_{old_short}": (new_total - old_total) / old_total * 100 if old_total else "",
+            f"{old_name}_co2_kt": old_co2,
+            f"{new_name}_co2_kt": new_co2,
+            f"co2_difference_{new_short}_minus_{old_short}_kt": new_co2 - old_co2,
+            f"co2_difference_percent_of_{old_short}": (new_co2 - old_co2) / old_co2 * 100 if old_co2 else "",
+            "interpretation_note": spec["note"],
         })
 
-with OUTPUT.open("w", encoding="utf-8", newline="") as handle:
+with spec["output"].open("w", encoding="utf-8", newline="") as handle:
     writer = csv.DictWriter(handle, fieldnames=records[0].keys())
     writer.writeheader()
     writer.writerows(records)
-print(f"Wrote {len(records)} records to {OUTPUT}")
+print(f"Wrote {len(records)} records to {spec['output']}")
