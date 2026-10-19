@@ -1,0 +1,47 @@
+bib_key,cited_in,status,verified_via,doi,note
+zhakiyev2023optimization,literature_review #1,verified,Crossref API record of the DOI,10.3390/en16135142,Authors completed; abstract confirms TIMES model and CN2060 scenario
+demiglio2024risk,literature_review #2,verified; completed,Crossref API record of the DOI (PII S2211467X24000397),10.1016/j.esr.2024.101332,"Volume 52, article 101332 and DOI added"
+zhakiyev2025forecasting,literature_review #3,verified; completed,IJRER article page meta tags; Crossref,10.20508/ijrer.v15i2.15837.g9052,"Authors Zhakiyev, Kayisli, Kushekkaliyev, Sagadatova, Biloshchytskyi; pp. 300-309; DOI is the Crossref galley DOI that resolves to the article page"
+cassetti2023reinforcing,literature_review #4,corrected,Crossref API record of the DOI (PII S2667095X23000041); OpenAlex,10.1016/j.rset.2023.100048,"Authors are Cassetti, Elia, Gargiulo, Chiodi, not De Miglio et al.; journal Renewable and Sustainable Energy Transition 3, 100048. In-text citations corrected"
+zhakiyev2025energy,literature_review #5,verified,Crossref API record of the DOI,10.1016/j.esr.2025.101883,Authors completed
+radovanovic2021sustainable,literature_review #6,verified; completed,Crossref API record of the DOI,10.1186/s13705-021-00324-2,"Volume 11, article 49 and DOI added"
+tan2022technology,literature_review #7,corrected,Crossref API record of the DOI (PII S0306261922010807); University of Groningen repository abstract,10.1016/j.apenergy.2022.119804,"First author is Tan, Chang (listed as Tan, X.); Applied Energy 325, 119804; abstract confirms the G-LEAP model"
+dang2026decarbonization,literature_review #8,verified; completed; abstract not verified,Crossref API record of the DOI (PII S019592552500321X),10.1016/j.eiar.2025.108124,"Environmental Impact Assessment Review 116, 108124. Abstract not accessible (ScienceDirect 403); the review describes only what the title states"
+duan2022towards,literature_review #9,verified; completed; abstract not verified,Crossref API record of the DOI (PII S2352550922001166),10.1016/j.spc.2022.04.028,"Sustainable Production and Consumption 32, 270-281. Abstract not accessible; the review describes only what the title states"
+wan2024exploring,literature_review #10,verified; authors added,Crossref API record of the DOI (PII S2352484724002348); OpenAlex abstract,10.1016/j.egyr.2024.04.028,"Authors Wan and Li (listed without authors); Energy Reports 11, 4552-4563; abstract confirms LEAP with life-cycle CO2"
+li2024medium,literature_review #11,verified; authors added; abstract not verified,Crossref API record of the DOI (PII S0360544224027919),10.1016/j.energy.2024.133017,"Authors Li, Kong, Wang, Yuan (listed without authors); Energy 310, 133017. Abstract not accessible; the review describes only what the title states"
+muller2024decarbonizing,literature_review #12,verified; completed,Crossref API record of the DOI (PII S0959652624013325); OpenAlex abstract,10.1016/j.jclepro.2024.141884,"Journal of Cleaner Production 450, 141884"
+shao2022china,literature_review #13,verified; authors added; abstract not verified,Crossref API record of the DOI (PII S1364032122008735),10.1016/j.rser.2022.112992,"Authors Shao, Pan, Li, Zhou, Zhang, Chen (listed without authors); Renewable and Sustainable Energy Reviews 170, 112992. Abstract not accessible; the review describes only what the title states"
+tautorat2023directions,literature_review #14,verified; completed,Crossref API record of the DOI (PII S0959652623012131); OpenAlex abstract,10.1016/j.jclepro.2023.137055,"Journal of Cleaner Production 407, 137055"
+obrist2021decarbonization,literature_review #15,verified; journal version identified,Crossref bibliographic search and DOI record; OpenAlex abstract,10.1016/j.jclepro.2020.125413,"Listed with an ETH Research Collection link only; journal version Journal of Cleaner Production 288, 125413; abstract confirms TIMES (STEM) model"
+khamzina2026green,added (Kazakhstan industry),added; full text read,Crossref API record of the DOI; OpenAlex abstract; doi.org resolves to fupubco.com article page; full text PDF in data/raw/literature/khamzina_2026_green_cement (pp. 295–308),10.55670/fpll.futech.5.3.26,"IPPU of Kazakhstan, WOM/WCM/WAM to 2040 by linear time trend on NID (30 Dec 2024, 1990–2022); WAM term for cement only (Eq. 2, p. 299); DFT of PCE–Ca2+–SiO2. Co-authors overlap with this study"
+khoyashov2024ccs,added (Kazakhstan industry),added,Crossref API record of the DOI; OpenAlex abstract,10.1016/j.ijggc.2024.104259,CCS hubs in Kazakhstan; ammonia and gas processing as low-cost capture; cement and steel as hard-to-abate
+khussain2025ets,added (Kazakhstan industry),added,Crossref API record of the DOI (abstract in Crossref),10.3390/su17167195,CCS/CCUS for metallurgy and processing and reforms of the Kazakhstan ETS
+aubakirova2023decarbonization,added (Kazakhstan industry),added,Crossref API record of the DOI (abstract in Crossref),10.46914/1562-2959-2023-1-4-54-69,Descriptive study of mining and steel decarbonisation in Kazakhstan; national journal; Crossref gives issue 4 without volume
+myhre2013anthropogenic,added (GWP),added,"PDF in data/raw/literature/ipcc_ar5_wg1_ch8 (Table 8.7, p. 714); Crossref",10.1017/CBO9781107415324.018,"GWP100 no cc fb: CH4 28, N2O 265; pp. 659-740"
+unfccc2019decision18cma1,added (AR5 in ETF),added,"PDF in data/raw/official/unfccc_decision_18_cma1 (annex para. 37, p. 25)",,"FCCC/PA/CMA/2018/3/Add.2, decision on pp. 18-52; DOI not found"
+heaps2022leap,added (LEAP),added,https://leap.sei.org/default.asp?action=citing (accessed 2026-10-18),,"Official citation format; version replaced by the version used, 2026.5.0.1; DOI not found"
+kazakhstan2023ndc,added (NDC),added,"PDF in data/raw/official/kazakhstan_ndc_2023 (p. 2 decree, p. 4 targets)",,"Government Decree No. 313 of 19 April 2023; UNFCCC registry folder 2023-06; exact submission date not checked in the registry (27 June 2023 per Climate Action Tracker, secondary)"
+kazakhstan2023strategy2060,scenario_rationale #3 (replaces Draft news link),corrected,PDFs in data/raw/official/kz_carbon_neutrality_strategy_2060 (p. 1); zakon.uchet.kz and prg.kz copies of U2300000121,,"Approved by Presidential Decree No. 121 of 2 February 2023, in force from signing; prg.kz shows no amendments (last change 2 February 2023). Adilet page requires JavaScript and could not be read; Collection of Acts issue number not found"
+iea2018cement,scenario_rationale #1; levers L01-L03,verified; DOI added,PDF in data/raw/literature; Crossref,10.1787/9789264300248-en,OECD iLibrary DOI
+iea2020steel,"scenario_rationale #2; levers L14, L34-L36",verified; DOI added,PDF in data/raw/literature; Crossref,10.1787/3dcc2a1b-en,OECD iLibrary DOI
+iea2021nze,"levers L04-L05, L15",verified; DOI added,PDF in data/raw/literature; Crossref,10.1787/c8328405-en,Corrected version used
+iea2021ammonia,levers L26-L27,verified; DOI added,PDF in data/raw/literature; Crossref,10.1787/f6daa4a0-en,
+iea2023nze,"levers L06, L16, L25",verified,PDF in data/raw/literature,,DOI not found in Crossref
+bashmakov2022industry,"levers L09, L17, L24",verified,PDF in data/raw/literature (p. 1161 citation); Crossref,10.1017/9781009157926.013,pp. 1161-1244
+gcca2021concrete,levers L07-L08,verified,PDF in data/raw/literature,,DOI not found
+eula2023pathway,levers L11-L12,verified,PDF in data/raw/literature,,DOI not found
+jrc2007lvicaaf,levers L28-L31,verified,"PDF in data/raw/literature (title page, August 2007)",,DOI not found
+menzies2024whitepaper,levers L18-L20,verified; authors added,PDF in data/raw/literature (p. 2 imprint),,"Authors Menzies, Qader, Bologa (Global Factor); cited as GIZ (2024); DOI not found"
+holtz2025dekame,"levers L21, L23",verified; authors added,PDF in data/raw/literature (p. 2 recommended citation),,Cited as Wuppertal Institut / GIZ (2025); DOI not found
+jayakumari2026agglomerates,lever L22,verified,PDF in data/raw/literature; Crossref,10.55669/oa900823,
+ipcc2006guidelines,scenario_rationale #4; methodology,verified,IPCC NGGIP cover PDF (recommended citation),,ISBN 4-88788-032-4; DOI not found
+ipcc2019refinement,scenario_rationale #4; methodology,verified,IPCC NGGIP 2019 Refinement cover PDF (recommended citation),,ISBN 978-4-88788-232-4; DOI not found
+kazakhstan2025crt,data source (archive),verified,data/metadata/source_registry.csv (unfccc_crt_2025),,DOI not found
+kazakhstan2025nid,data source (archive); lever L32,verified,PDF in data/raw/unfccc_reports (cover),,"Author harmonised to Republic of Kazakhstan, as for NID 2026 (prepared by Zhasyl Damu JSC for the Ministry of Ecology and Natural Resources). DOI not found"
+kazakhstan2026crt,data source (journal),verified,data/metadata/source_registry.csv (unfccc_crt_2026),,DOI not found
+kazakhstan2026nid,data source (journal),verified,PDF in data/raw/unfccc_reports_2026 (p. 2),,DOI not found
+kazakhstan2023crf,data source (comparison),verified,data/metadata/source_registry.csv (unfccc_crf_2023),,DOI not found
+kazakhstan2023nir,data source (comparison),verified,data/metadata/source_registry.csv (kazakhstan_nir_2023),,DOI not found
+bns2025industrial,data source; lever L10; BNS check,verified,data/metadata/source_registry.csv (bns_*),,DOI not found
+mne2024forecast,growth variant 'official',verified,PDF in data/raw/official/mne_forecast_2025_2029_2024-09 (p. 1),,DOI not found
