@@ -4,11 +4,16 @@ The script only replaces the Expression cells in column L.  It deliberately
 leaves BranchID, VariableID, ScenarioID, RegionID, paths, units and sheet
 layout untouched, so the resulting workbook can be read by LEAP's
 Import-from-Excel command.
+
+usage: fill_leap_import_template.py INPUT.xlsx OUTPUT.xlsx [--parameters CSV]
+The default parameters are the CRT 2025 proxy base (archived conference
+workbook); data/metadata/leap_scenario_parameters_crt2026.csv gives the
+CRT 2026 inventory 2024 base of the journal version.
 """
 
 from __future__ import annotations
 
-import copy
+import csv
 import sys
 from pathlib import Path
 from zipfile import ZIP_DEFLATED, ZipFile
@@ -17,31 +22,25 @@ from xml.etree import ElementTree as ET
 NS = "http://schemas.openxmlformats.org/spreadsheetml/2006/main"
 ET.register_namespace("", NS)
 
-# 2023 CRT values converted to the native LEAP units exported in the template.
-CURRENT = {
-    344: 4345666.0,    # Cement clinker CO2 (template label is currently IPPU)
-    345: 721506.0,     # Lime CO2
-    347: 24480.0,      # Glass CO2
-    349: 4545014.3,    # Other carbonate uses CO2
-    357: 5041002.44,   # Pig iron CO2
-    359: 432644.70,    # Steel CO2
-    360: 3425548.28,   # Ferroalloys CO2
-    361: 36.894,       # Ferroalloys CH4, metric tonnes
-    362: 403736.76,    # Aluminium CO2 (PFC excluded from model boundary)
-    363: 274662.10,    # Zinc CO2
-    365: 3538879.52,   # Sinter CO2
-    367: 287330.44,    # Pellets CO2
-    352: 326017.90,    # Ammonia CO2
-    354: 592.4,        # Nitric acid N2O, metric tonnes
-    356: 27426.0,      # Calcium carbide CO2
-}
+# Base values (tonnes of gas) and 2030/2050 factors shared with
+# scripts/analyze_leap_scenarios.py. 2024 Current Accounts use the latest
+# inventory year (CRT 2025, 2023) as a proxy. Baseline holds that level
+# constant; moderate and ambitious are explicitly illustrative sensitivity
+# pathways, not policy forecasts.
+PARAMETERS = Path(sys.argv[sys.argv.index("--parameters") + 1]) if "--parameters" in sys.argv \
+    else Path("data/metadata/leap_scenario_parameters.csv")
 
-# Factors at 2030 and 2050, indexed by LEAP branch IDs. Baseline is held at
-# the calibrated 2023 level. Moderate and ambitious are explicitly
-# illustrative sensitivity pathways, not policy forecasts.
-MINERAL = {344, 345, 347, 349}
-METALS = {357, 359, 360, 361, 362, 363, 365, 367}
-CHEMICALS = {352, 354, 356}
+# Tonnes of gas -> native unit of each branch in the LEAP template. CO2
+# branches are in Metric Tonne. Branches 361 (ferroalloys CH4) and 354
+# (nitric acid N2O) are kg (branch unit in LEAP template): 36.894 t is
+# written as 36894.0 and 592.4 t as 592400.0.
+TO_LEAP_UNIT = {"Metric Tonne": 1.0, "Kilogramme": 1000.0}
+
+with PARAMETERS.open(encoding="utf-8", newline="") as handle:
+    PARAMS = {int(row["branch_id"]): row for row in csv.DictReader(handle)}
+
+CURRENT = {branch_id: float(row["base_t"]) * TO_LEAP_UNIT[row["leap_unit"]]
+           for branch_id, row in PARAMS.items()}
 
 
 def scenario_expression(branch_id: int, scenario: str) -> str:
@@ -49,19 +48,11 @@ def scenario_expression(branch_id: int, scenario: str) -> str:
     if scenario == "Baseline":
         f2030, f2050 = 1.0, 1.0
     elif scenario == "Moderate mitigation":
-        if branch_id in MINERAL:
-            f2030, f2050 = 0.85, 0.60
-        elif branch_id in METALS:
-            f2030, f2050 = 0.90, 0.65
-        else:
-            f2030, f2050 = 0.90, 0.65
+        f2030 = float(PARAMS[branch_id]["moderate_f2030"])
+        f2050 = float(PARAMS[branch_id]["moderate_f2050"])
     elif scenario == "Ambitious mitigation":
-        if branch_id in MINERAL:
-            f2030, f2050 = 0.70, 0.30
-        elif branch_id in METALS:
-            f2030, f2050 = 0.75, 0.35
-        else:
-            f2030, f2050 = 0.70, 0.30
+        f2030 = float(PARAMS[branch_id]["ambitious_f2030"])
+        f2050 = float(PARAMS[branch_id]["ambitious_f2050"])
     else:
         raise ValueError(f"Unexpected scenario: {scenario}")
     return f"Interp(2024,{value:.6f},2030,{value*f2030:.6f},2050,{value*f2050:.6f})"
@@ -103,6 +94,10 @@ def main(input_path: Path, output_path: Path) -> None:
             continue
         if branch_id not in CURRENT:
             continue
+        unit = text_from_cell(cells["J"], shared)
+        if unit != PARAMS[branch_id]["leap_unit"]:
+            raise ValueError(f"Branch {branch_id}: template unit {unit!r}, "
+                             f"parameters expect {PARAMS[branch_id]['leap_unit']!r}")
         scenario = text_from_cell(cells["G"], shared)
         if scenario == "Current Accounts":
             expression = f"{CURRENT[branch_id]:.6f}"
@@ -127,6 +122,8 @@ def main(input_path: Path, output_path: Path) -> None:
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
-        raise SystemExit("usage: fill_leap_import_template.py INPUT.xlsx OUTPUT.xlsx")
-    main(Path(sys.argv[1]), Path(sys.argv[2]))
+    positional = [a for i, a in enumerate(sys.argv[1:], 1)
+                  if a != "--parameters" and sys.argv[i - 1] != "--parameters"]
+    if len(positional) != 2:
+        raise SystemExit("usage: fill_leap_import_template.py INPUT.xlsx OUTPUT.xlsx [--parameters CSV]")
+    main(Path(positional[0]), Path(positional[1]))

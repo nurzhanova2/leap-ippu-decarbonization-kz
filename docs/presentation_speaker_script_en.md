@@ -27,7 +27,7 @@ The literature has three useful strands. Kazakhstan-wide energy and decarbonisat
 
 ### Slide 5 — Data and analytical workflow | 2:25–3:05
 
-We combined five evidence sources: the UNFCCC CRT 2025 submission, the earlier CRF 2023 submission, Bureau of National Statistics production data, Kazakhstan’s NID and NIR documentation, and IPCC methodological guidance. The workflow has five steps. First, we reconstruct historical IPPU emissions. Second, we compare CRF and CRT versions with explicit attention to AR4 and AR5 global-warming-potential differences. Third, we test activity-data comparability process by process. Fourth, we calibrate selected branches in LEAP for 2024. Finally, we calculate Baseline, Moderate and Ambitious exploratory pathways to 2050.
+We combined five evidence sources: the UNFCCC CRT 2025 submission, the earlier CRF 2023 submission, Bureau of National Statistics production data, Kazakhstan’s NID and NIR documentation, and IPCC methodological guidance. The workflow has five steps. First, we reconstruct historical IPPU emissions. Second, we compare CRF and CRT versions with explicit attention to AR4 and AR5 global-warming-potential differences. Third, we test activity-data comparability process by process. Fourth, we set up selected branches in LEAP for the 2024 base year. Finally, we calculate Baseline, Moderate and Ambitious exploratory pathways to 2050.
 
 ### Slide 6 — Historical IPPU emissions | 3:05–3:55
 
@@ -47,7 +47,7 @@ This is the central methodological result. For 2021, clinker, aggregate lime, cr
 
 ### Slide 10 — LEAP model structure and boundary | 6:30–7:15
 
-Based on that assessment, we implemented a selected process-emissions boundary in LEAP version 2026.5.0.1. It includes mineral-industry processes, metal-industry processes and selected chemical-industry processes. The model excludes F-gases, aluminium PFCs, lead and other minor IPPU sources, and industrial fuel-combustion emissions. The Current Accounts year is 2024, the end year is 2050, and the model uses AR5 global-warming potentials: one for CO2, 28 for methane and 265 for nitrous oxide. The 2024 selected-boundary baseline is 23,552 kilotonnes of CO2 equivalent. It is not the total national IPPU inventory.
+Based on that assessment, we implemented a selected process-emissions boundary in LEAP version 2026.5.0.1. It includes mineral-industry processes, metal-industry processes and selected chemical-industry processes. The model excludes F-gases, aluminium PFCs, lead and other minor IPPU sources, and industrial fuel-combustion emissions. The Current Accounts year is 2024, with values taken from the latest inventory year, 2023, as a proxy; the end year is 2050, and the model uses AR5 global-warming potentials: one for CO2, 28 for methane and 265 for nitrous oxide. The 2024 selected-boundary baseline is 23,552 kilotonnes of CO2 equivalent. It is not the total national IPPU inventory.
 
 ### Slide 11 — Exploratory scenario design | 7:15–8:15
 
@@ -59,7 +59,7 @@ Under the flat Baseline, included process emissions remain at 23,552 kilotonnes 
 
 ### Slide 13 — Avoided emissions by process group | 9:10–9:45
 
-The largest absolute avoided emissions come from metal-industry processes, followed by mineral-industry processes. This is primarily a scale effect: these groups have the largest calibrated emissions within the model boundary. It should not be interpreted as proof that a particular technology, or a particular sector, is necessarily easier to decarbonise in Kazakhstan. The current model quantifies scenario consequences; it does not rank implementation feasibility.
+The largest absolute avoided emissions come from metal-industry processes, followed by mineral-industry processes. This is primarily a scale effect: these groups have the largest base-year emissions within the model boundary. It should not be interpreted as proof that a particular technology, or a particular sector, is necessarily easier to decarbonise in Kazakhstan. The current model quantifies scenario consequences; it does not rank implementation feasibility.
 
 ### Slide 14 — Main conclusions | 9:45–10:35
 
@@ -77,6 +77,7 @@ Finally, the limitations are central to the interpretation. The CRF–CRT compar
 | Why are F-gases excluded when they are important historically? | They are important and should be represented in a future complete IPPU model. They were excluded here because the present LEAP implementation was designed around the selected mineral, metal and chemical process branches with verified input structure. |
 | Are the Moderate and Ambitious percentages official Kazakhstan targets? | No. They are transparent, author-selected sensitivity assumptions that represent progressively deeper portfolios of recognised measures. |
 | Why is the Baseline flat? | The flat Baseline isolates the effect of the stated emissions multipliers. It is not a projection of production growth or economic activity. |
+| Why does the model start in 2024 if the inventory ends in 2023? | The latest submission, CRT 2025, ends in 2023. The 2024 Current Accounts therefore use the 2023 inventory values as a proxy, assuming unchanged activity; 2024 is the model start year from which the 2030 and 2050 factors are interpolated. Because the scenarios are defined as factors relative to the base year, the proxy affects absolute levels, not the relative reductions. Once 2024 inventory or verified production data are available, the base year can be updated. |
 | Can the CRF 2023 and CRT 2025 totals be directly compared? | CO2 can be compared more directly, but CO2-equivalent totals require caution because the submissions use AR4 and AR5 GWP values respectively. |
 | Do matching BNS and CRT values prove that the data are fully accurate? | No. They show that the output indicators match. A full emissions estimate can still require route-specific parameters such as carbon balance, reductant use, alloy composition or lime type. |
 | What is the main innovation of the study? | It treats activity-data comparability as a precondition for bottom-up scenario modelling and makes the boundary and assumptions of the LEAP scenarios fully transparent. |

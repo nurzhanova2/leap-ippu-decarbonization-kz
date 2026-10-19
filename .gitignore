@@ -7,3 +7,9 @@ tmp/
 
 # Operating-system metadata.
 .DS_Store
+
+# Python bytecode.
+scripts/__pycache__/
+
+# Local notes for AI-assisted sessions.
+.ai/

@@ -6,11 +6,11 @@
 
 **LEAP-Based modeling of Decarbonization pathways in the IPPU sector of Kazakhstan.**
 
-This is the official conference title. The article combines a historical data-quality assessment with transparent LEAP IPPU scenario pathways calibrated in 2024 and extending to 2050. The pathways are not national forecasts or least-cost optimisation results.
+This is the official conference title. The article combines a historical data-quality assessment with transparent LEAP IPPU scenario pathways from a 2024 base year (2023 inventory proxy) to 2050. The pathways are not national forecasts or least-cost optimisation results.
 
 ## Objective
 
-To characterise the dynamics of Kazakhstan's *Industrial Processes and Product Use* (IPPU) emissions in 1990–2023, assess the comparability of production statistics with inventory activity data, and quantify exploratory LEAP process-emissions pathways for 2030 and 2050 from a 2024 calibration.
+To characterise the dynamics of Kazakhstan's *Industrial Processes and Product Use* (IPPU) emissions in 1990–2023, assess the comparability of production statistics with inventory activity data, and quantify exploratory LEAP process-emissions pathways for 2030 and 2050 from a 2024 base year (2023 inventory proxy).
 
 ## Article research questions
 
@@ -49,7 +49,7 @@ The study:
 - **Emissions unit:** kt CO2eq, preserving the GWP framework used by the source.
 - **Activity unit:** physical product units, mainly tonnes per year; monetary BNS series are not used as activity data.
 - **Comparability:** compare only identical product definitions and process boundaries.
-- **Scenario period:** 2024–2050; Current Accounts is 2024.
+- **Scenario period:** 2024–2050; Current Accounts is 2024 (2023 inventory proxy).
 - **Scenario boundary:** selected mineral, metal and chemical process emissions; F-gases, aluminium PFCs, unlisted IPPU sources and industrial fuel combustion are excluded.
 
 ## Calculations
@@ -68,4 +68,4 @@ Do not calculate a percentage when the BNS value is zero or missing. Do not trea
 
 ## LEAP scenario stage
 
-The [scenario protocol](docs/leap_scenarios_2023_2050_en.md) documents the Current Accounts calibration, three scenarios, interpolation expressions and the full output table. The model was run in LEAP 2026.5.0.1 after correcting CH4 and N2O units; a LEAP-compatible import workbook is stored in `outputs/`.
+The [scenario protocol](docs/leap_scenarios_2023_2050_en.md) documents the Current Accounts values, three scenarios, interpolation expressions, the full output table and the verification checks. The model is implemented in LEAP 2026.5.0.1 and computed using LEAP’s deterministic Interp() expressions (results reproduced in Python), after correcting CH4 and N2O units; a LEAP-compatible import workbook is stored in `outputs/`.
