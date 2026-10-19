@@ -8,9 +8,11 @@ English version: [README_en.md](README_en.md).
 | [Предварительные результаты](preliminary_results.md) | проверенные числа и корректная интерпретация сравнений |
 | [Анализ для статьи](article_analysis.md) | историческая динамика, структура IPPU, CRF–CRT и готовые подписи рисунков |
 | [Проверка методов NID/NIR](process_methodology_review.md) | границы процессов, activity data и статус сопоставимости БНС–UNFCCC |
-| [Обзор литературы](literature_review.md) | research gap, позиционирование статьи и 15 исходных работ |
+| [Обзор литературы](literature_review.md) | research gap, позиционирование статьи, 15 исходных работ и 4 работы о промышленности Казахстана |
+| [Список литературы (BibTeX)](references.bib) | все проверенные ссылки с DOI; журнал проверки — [references_check.csv](../data/metadata/references_check.csv) |
 | [Статус написания статьи](article_writing_status.md) | что можно завершить сейчас и что требует LEAP-сценариев |
-| [Черновик Results и Discussion](manuscript_historical_results_discussion.md) | готовый исторический результат и методическое обсуждение для рукописи |
+| [Черновик Results и Discussion](manuscript_historical_results_discussion.md) | архивная конференционная версия (CRT 2025): исторические результаты и методическое обсуждение |
+| [Полная рукопись, журнальная версия](manuscript_full_ru.md) | CRT 2026: Данные и методы, Результаты, Обсуждение; Введение — позже |
 | [Сценарии IPPU 2024–2050](leap_scenarios_2023_2050.md) | допущения, результаты, границы модели и LEAP-расчёт |
 | [Обоснование сценариев](scenario_rationale.md) | портфели мер, интерпретация коэффициентов и граница допустимых выводов |
 | [Текст доклада IAMC](presentation_speaker_script.md) | английский текст выступления на 11–12 минут, тайминг и ожидаемые вопросы |

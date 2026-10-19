@@ -8,9 +8,11 @@
 | [Preliminary results](preliminary_results_en.md) | verified figures and correct interpretation of comparisons |
 | [Article analysis](article_analysis_en.md) | historical trend, IPPU composition, CRF–CRT comparison and figure captions |
 | [NID/NIR methodology review](process_methodology_review_en.md) | process boundaries, activity data and BNS–UNFCCC comparability status |
-| [Literature review](literature_review_en.md) | research gap, article positioning and 15 source studies |
+| [Literature review](literature_review_en.md) | research gap, article positioning, 15 source studies and 4 studies of Kazakhstan's industry |
+| [References (BibTeX)](references.bib) | all checked references with DOI; check log in [references_check.csv](../data/metadata/references_check.csv) |
 | [Manuscript-writing status](article_writing_status_en.md) | work that can finish now and work requiring LEAP scenarios |
-| [Results and Discussion draft](manuscript_historical_results_discussion_en.md) | article-ready historical results and methodological discussion |
+| [Results and Discussion draft](manuscript_historical_results_discussion_en.md) | archived conference version (CRT 2025): historical results and methodological discussion |
+| [Full manuscript, journal version](manuscript_full_en.md) | CRT 2026: Data and methods, Results, Discussion; Introduction pending |
 | [IPPU scenarios 2024–2050](leap_scenarios_2023_2050_en.md) | assumptions, results, model boundary and LEAP calculation |
 | [Scenario rationale](scenario_rationale_en.md) | evidence-informed measure portfolios, factor interpretation and claims boundary |
 | [IAMC speaker script](presentation_speaker_script_en.md) | 11–12 minute English oral script, timings and anticipated Q&A |
