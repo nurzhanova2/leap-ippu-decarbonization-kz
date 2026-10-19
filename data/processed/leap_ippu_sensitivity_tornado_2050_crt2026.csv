@@ -1,0 +1,15 @@
+parameter,low_setting,high_setting,total_low,total_high,swing,reference_2050
+f: all processes (literature low/high),all low,all high,8683.7,24913.3,16229.6,17987.9
+Stress test: half official rates to 2050,reference (trend),stress test,17987.9,33778.8,15790.9,17987.9
+Activity growth after 2024 (plausible),zero growth,1.5%/yr to 2050,14009.1,20631.4,6622.3,17987.9
+f: cement clinker,low,high,12880.5,19088.0,6207.5,17987.9
+f: iron and steel (4 branches),low,high,15889.3,21485.6,5596.2,17987.9
+2.A.4.d: mineral-group factors,Ambitious mineral factors,f = 1.00,14590.6,17987.9,3397.3,17987.9
+f: ferroalloys,low,high,16912.3,19063.5,2151.2,17987.9
+2.A.4.d: emissive share s,s = 0.80,s = 1.00,17017.3,17987.9,970.6,17987.9
+f: ammonia,low,high,17796.9,18522.8,725.9,17987.9
+f: lime,low,high,17666.0,18302.3,636.4,17987.9
+f: aluminium,low,high,17676.3,18105.3,429.1,17987.9
+"f: glass, zinc, carbide (author assumption)",low,high,17869.4,18130.2,260.9,17987.9
+f: nitric acid,low,high,17908.5,18130.8,222.3,17987.9
+2.A.4.d: base value,2022–2024 mean,2024,17777.7,17987.9,210.3,17987.9
